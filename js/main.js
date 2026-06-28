@@ -4,23 +4,31 @@ import GameScene from "./scenes/GameScene.js";
 
 const config = {
 
-type: Phaser.AUTO,
+    type: Phaser.AUTO,
 
-width: 480,
+    width: 480,
 
-height: 800,
+    height: 800,
 
-parent: "game",
+    parent: "game",
 
-backgroundColor: "#87CEEB",
+    backgroundColor: "#87CEEB",
 
-scene: [
+    // ==========================
+    // Arcade Physics
+    // ==========================
+    physics: {
+        default: "arcade",
+        arcade: {
+            debug: false
+        }
+    },
 
-BootScene,
-MenuScene,
-GameScene
-
-]
+    scene: [
+        BootScene,
+        MenuScene,
+        GameScene
+    ]
 
 };
 
