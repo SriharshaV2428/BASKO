@@ -1,6 +1,6 @@
-import BootScene from "./BootScene.js";
-import MenuScene from "./MenuScene.js";
-import GameScene from "./GameScene.js";
+import BootScene from "./scenes/BootScene.js";
+import MenuScene from "./scenes/MenuScene.js";
+import GameScene from "./scenes/GameScene.js";
 
 const config = {
 

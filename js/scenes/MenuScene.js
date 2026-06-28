@@ -13,7 +13,7 @@ this.add.text(
 240,
 200,
 
-"COIN CATCHER",
+"BASKO",
 
 {
 
