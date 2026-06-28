@@ -1,3 +1,5 @@
+import Player from "../objects/Player.js";
+
 export default class GameScene extends Phaser.Scene {
 
     constructor() {
@@ -66,59 +68,16 @@ export default class GameScene extends Phaser.Scene {
         });
 
         // =======================
-        // Create Player
+        // Player
         // =======================
 
-        this.player = this.add.rectangle(
-            240,
-            640,
-            80,
-            60,
-            0xC68A43
-        );
-
-        this.player.setStrokeStyle(4, 0x8B5A2B);
-
-        // Give rectangle a physics body
-        this.physics.add.existing(this.player);
-
-        // Player should not fall
-        this.player.body.setAllowGravity(false);
-
-        // Player should not move because of collisions
-        this.player.body.setImmovable(true);
-
-        // Keyboard
-        this.cursors = this.input.keyboard.createCursorKeys();
+        this.player = new Player(this, 240, 640);
 
     }
 
     update() {
 
-        const speed = 350;
-
-        // Stop previous movement
-        this.player.body.setVelocityX(0);
-
-        // Move Left
-        if (this.cursors.left.isDown) {
-            this.player.body.setVelocityX(-speed);
-        }
-
-        // Move Right
-        if (this.cursors.right.isDown) {
-            this.player.body.setVelocityX(speed);
-        }
-
-        // Keep inside screen
-
-        if (this.player.x < 40) {
-            this.player.x = 40;
-        }
-
-        if (this.player.x > 440) {
-            this.player.x = 440;
-        }
+        this.player.update();
 
     }
 
