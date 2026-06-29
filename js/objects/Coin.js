@@ -4,7 +4,7 @@ export default class Coin {
 
         this.scene = scene;
 
-        // Temporary placeholder coin
+        // Create the coin
         this.sprite = scene.add.circle(
             x,
             y,
@@ -15,24 +15,29 @@ export default class Coin {
         // Enable Arcade Physics
         scene.physics.add.existing(this.sprite);
 
-        // Coin should fall
         this.sprite.body.setAllowGravity(false);
 
         // Falling speed
-        this.speed = 220;
+        this.fallSpeed = 220;
+
+        // Active flag
+        this.active = true;
 
     }
 
-    update() {
+    update(delta) {
 
-        this.sprite.y += this.speed * 0.016;
+        if (!this.active) return;
 
-        // If coin leaves screen
-        if (this.sprite.y > 850) {
+        this.sprite.y += this.fallSpeed * (delta / 1000);
 
-            this.sprite.destroy();
+    }
 
-        }
+    destroy() {
+
+        this.active = false;
+
+        this.sprite.destroy();
 
     }
 
